@@ -3,11 +3,10 @@ import SelectTitre from "@/app/ui/select/select-titre";
 import SelectName from "../ui/select/select-name";
 import SelectEmail from "../ui/select/selectEmail";
 import { useState } from "react";
-import Image from "next/image";
 export default function Page() {
   const [selectedSexe, setSelectedSexe] = useState("");
   return (
-    <div className="">
+    <div>
       <p className="text-xl mb-2 text-center">
         Indiquez vos coordonnées afin que l'on puisse vous contacter
       </p>
