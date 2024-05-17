@@ -3,6 +3,7 @@ import SelectTitre from "@/app/ui/select/select-titre";
 import SelectName from "../ui/select/select-name";
 import SelectEmail from "../ui/select/selectEmail";
 import { useState } from "react";
+import Image from "next/image";
 export default function Page() {
   const [selectedSexe, setSelectedSexe] = useState("");
   return (

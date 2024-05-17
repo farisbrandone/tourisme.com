@@ -3,12 +3,12 @@ import Image from "next/image";
 export default function Headers() {
   return (
     <div
-      className={`flex flex-row justify-between items-center w-full border-b-4 border-slate-500 pb-3`}
+      className={`shadow-xl flex flex-row justify-between items-center w-full border-b-4 border-slate-500 pb-0`}
     >
       <div className="flex items-center p-2 ml-1 cursor-pointer">
         <Image
           src="/logo.png"
-          width={200}
+          width={180}
           height={90}
           className=""
           alt="Logo"
@@ -18,7 +18,7 @@ export default function Headers() {
         </p>
       </div>
 
-      <button className="h-10 flex items-center p-3 mr-3 text-lg bg-gray-100 hover:bg-slate-500 text-black hover:text-white border-gray-500 border-2 ">
+      <button className="shadow-lg h-10 flex items-center p-3 mr-3 text-lg bg-gray-100 hover:bg-slate-500 text-black hover:text-white border-gray-500 border-2 ">
         Reservation
       </button>
     </div>
