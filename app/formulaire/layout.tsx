@@ -1,5 +1,4 @@
 import Headers from "@/app/ui/headers/headers";
-import SelectName from "../ui/select/select-name";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
