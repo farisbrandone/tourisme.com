@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.floating-label {
+  position: relative;
+  margin-bottom: 20px;
+}
+.floating-input,
+.floating-select {
+  font-size: 16px;
+  padding: 4px 4px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #757575;
+  border-radius: 5px;
+}
+
+.floating-input:focus,
+.floating-select:focus {
+  outline: #5264ae;
+  border: 2px solid #5264ae;
+}
+
+label {
+  color: #999;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 5px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+label::after {
+  content: "*";
+  color: black;
+  margin-left: 5px;
+}
+
+.floating-input:focus ~ label,
+.floating-input:not(:placeholder-shown) ~ label {
+  top: -20px;
+  font-size: 16px;
+  color: #5264ae;
+}
+
+/*.floating-select:focus ~ label,
+.floating-select:valid ~ label {
+  top: -20px;
+  font-size: 16px;
+  color: #5264ae;
+}*/
+
+/* active state */
+.floating-input:focus ~ .bar:before,
+.floating-input:focus ~ .bar:after,
+.floating-select:focus ~ .bar:before,
+.floating-select:focus ~ .bar:after {
+  width: 50%;
+}
+
+.floating-textarea {
+  min-height: 30px;
+  max-height: 260px;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+/* highlighter */
+.highlight {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 15%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+.floating-input:focus ~ .highlight,
+.floating-select:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* animation */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #f7f8fa;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #eff0f3;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #f0f1f3;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
