@@ -26,7 +26,7 @@ export default function SelectTitre(props) {
           "-top-5 text-base text-blue-500": props.selectedSexe !== "",
         })}
       >
-        Sexe
+        Sexe*
       </label>
     </div>
   );

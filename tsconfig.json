@@ -21,6 +21,24 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/ui/select/select-tel.jsx",
+    "app/ui/select/select-rue-numero.jsx",
+    "app/ui/select/select-prenom.jsx",
+    "app/ui/select/select-pays.jsx",
+    "app/ui/select/select-comple-adress.jsx",
+    "app/ui/select/select-code-postal.jsx",
+    "app/ui/select/salect-lieux.jsx",
+    "app/ui/select/data-time.jsx",
+    "app/ui/select/data-days.jsx",
+    "app/ui/select/select-name.jsx",
+    "app/ui/select/selectEmail.jsx",
+    "app/ui/select/select-titre.jsx",
+    "app/formulaire/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -74,11 +74,11 @@ label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-label::after {
+/*label::after {
   content: "*";
   color: black;
   margin-left: 5px;
-}
+}*/
 
 .floating-input:focus ~ label,
 .floating-input:not(:placeholder-shown) ~ label {

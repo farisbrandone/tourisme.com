@@ -1,6 +1,21 @@
 import Image from "next/image";
 
-export default function PaymentPart() {
+export default function PaymentPart(props) {
+  function listenCardName(e) {
+    props.setSelectedCardName(e.target.value);
+  }
+  function listenCardNumber(e) {
+    props.setSelectedCardNumber(e.target.value);
+  }
+  function listenMonthExp(e) {
+    props.setSelectedMonthExp(e.target.value);
+  }
+  function listenYearsExp(e) {
+    props.setSelectedYearsExp(e.target.value);
+  }
+  function listenCvv(e) {
+    props.setSelectedCvv(e.target.value);
+  }
   return (
     <div className="flex flex-col w-full md:mt-7 mb-5">
       <hr className="border-8 border-gray-900 mb-6" />
@@ -48,6 +63,8 @@ export default function PaymentPart() {
           className="floating-input"
           required
           minlength="2"
+          value={props.selectedCardName}
+          onChange={listenCardName}
         />
       </div>
       <div className="flex flex-col">
@@ -61,6 +78,8 @@ export default function PaymentPart() {
           required
           minlength="19"
           maxlength="19"
+          value={props.selectedCardNumber}
+          onChange={listenCardNumber}
         />
       </div>
       <div className="flex flex-col">
@@ -73,6 +92,8 @@ export default function PaymentPart() {
           className="floating-input"
           required
           minlength="3"
+          value={props.selectedMonthExp}
+          onChange={listenMonthExp}
         />
       </div>
 
@@ -87,6 +108,8 @@ export default function PaymentPart() {
           required
           minlength="3"
           maxlength="3"
+          value={props.selectedYearsExp}
+          onChange={listenYearsExp}
         />
       </div>
       <div className="flex flex-col">
@@ -100,6 +123,8 @@ export default function PaymentPart() {
           required
           minlength="3"
           maxlength="3"
+          value={props.selectedCvv}
+          onChange={listenCvv}
         />
       </div>
     </div>

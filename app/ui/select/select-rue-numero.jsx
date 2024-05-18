@@ -1,7 +1,7 @@
-export type myProps = {
-  type: string;
-};
-export default function SelectName(props: myProps) {
+export default function SelectRueEtNumero(props) {
+  function listenToInput(e) {
+    props.setSelectedRueEtNumero(e.target.value);
+  }
   return (
     <div className="floating-label w-full md:mt-7 ">
       <input
@@ -10,6 +10,8 @@ export default function SelectName(props: myProps) {
         placeholder=" "
         required
         minLength={1}
+        value={props.selectedRueEtNumero}
+        onChange={listenToInput}
       />
       <span className="highlight"></span>
       <label>{props.type}</label>
