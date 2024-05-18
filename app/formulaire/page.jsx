@@ -44,7 +44,7 @@ export default function Page() {
       f.length > 1 &&
       g.length > 2 &&
       h.length > 5 &&
-      validator(i) &&
+      validator.isEmail(i) &&
       j.length > 2 &&
       isValidatedCardNumber(k) &&
       l &&
@@ -56,7 +56,8 @@ export default function Page() {
     }
     return false;
   }
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    console.log("good");
     const result = {
       sexe: selectedSexe,
       nom: selectedName,
@@ -76,7 +77,28 @@ export default function Page() {
       année_dexpiration_de_la_carte: selectedYearsExp,
       numero_cvv_de_la_carte: selectedCvv,
     };
-    return result;
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:5000/formulaire", {
+        method: "POST",
+        body: JSON.stringify(result),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      console.log(res);
+      if (res.ok) {
+        console.log("Yeai!");
+      } else {
+        console.log("Oops! Something is wrong.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    /*setName('')
+    setAge('')*/
+    //return result;
   };
   return (
     <div>
@@ -169,27 +191,25 @@ export default function Page() {
           className="text-lg text-white text-center p-2 bg-blue-800 hover:bg-blue-600 w-44 disabled:bg-slate-300 disabled:cursor-not-allowed"
           onClick={handleSubmit}
           disabled={
-            !(
-              activedisable(
-                selectedSexe,
-                selectedName,
-                selectedPrenom,
-                selectedRueEtNumero,
-                selectedCodePostal,
-                selectedLieux,
-                selectedPays,
-                selectedTel,
-                selectedEmail,
-                selectedCardName,
-                selectedCardNumber,
-                selectedMonthExp,
-                selectedYearsExp,
-                selectedCvv,
-                selectedDays
-              ) &&
-              selectedDays.daysStart &&
-              selectedDays.daysEnd
-            )
+            activedisable(
+              selectedSexe,
+              selectedName,
+              selectedPrenom,
+              selectedRueEtNumero,
+              selectedCodePostal,
+              selectedLieux,
+              selectedPays,
+              selectedTel,
+              selectedEmail,
+              selectedCardName,
+              selectedCardNumber,
+              selectedMonthExp,
+              selectedYearsExp,
+              selectedCvv,
+              selectedDays
+            ) &&
+            selectedDays.daysStart &&
+            selectedDays.daysEnd
           }
         >
           Envoyer

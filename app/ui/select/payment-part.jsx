@@ -106,8 +106,8 @@ export default function PaymentPart(props) {
           placeholder="2024"
           className="floating-input"
           required
-          minlength="3"
-          maxlength="3"
+          minlength="4"
+          maxlength="4"
           value={props.selectedYearsExp}
           onChange={listenYearsExp}
         />

@@ -1,10 +1,11 @@
 export default function DataDays(props) {
   function listenToInput(e) {
-    props.setSelectedDays((prev) => {
-      return e.targer.name === "date-start"
-        ? { ...prev, ...{ daysStart: e.targer.value } }
-        : { ...prev, ...{ daysEnd: e.targer.value } };
-    });
+    const value =
+      e.target.name === "date-start"
+        ? { ...props.selectedDays, ...{ daysStart: e.target.value } }
+        : { ...props.selectedDays, ...{ daysEnd: e.target.value } };
+    console.log("dounge", value);
+    props.setSelectedDays(value);
   }
   return (
     <div className="flex flex-col w-full p-3 mb-5 md:mt-7 border-4 border-gray-500">
@@ -16,7 +17,7 @@ export default function DataDays(props) {
             type="date"
             id="start"
             name="date-start"
-            value={props.selectedDays}
+            value={props.selectedDays.daysStart}
             min="2024-01-01"
             max="2030-12-31"
             required
@@ -30,7 +31,7 @@ export default function DataDays(props) {
             type="date"
             id="start"
             name="date-end"
-            value={props.selectedDays}
+            value={props.selectedDays.daysEnd}
             min="2024-01-01"
             max="2030-12-31"
             required
