@@ -17,13 +17,14 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  background-color: var(--background-end-rgb);
+  /*color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb));*/
 }
 
 @layer utilities {
@@ -46,6 +47,13 @@ body {
   background-color: transparent;
   border: 1px solid #757575;
   border-radius: 5px;
+}
+.floating-input:invalid {
+  border: 1px solid #f80202;
+}
+
+.floating-select:invalid {
+  border: 1px solid #f80202;
 }
 
 .floating-input:focus,

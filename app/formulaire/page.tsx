@@ -2,7 +2,9 @@
 import SelectTitre from "@/app/ui/select/select-titre";
 import SelectName from "../ui/select/select-name";
 import SelectEmail from "../ui/select/selectEmail";
+import PaymentPart from "../ui/select/payment-part";
 import { useState } from "react";
+import DataDays from "../ui/select/data-days";
 export default function Page() {
   const [selectedSexe, setSelectedSexe] = useState("");
   return (
@@ -35,6 +37,12 @@ export default function Page() {
       </div>
       <div>
         <SelectEmail />
+      </div>
+      <div>
+        <DataDays />
+      </div>
+      <div>
+        <PaymentPart />
       </div>
       <div className="w-full flex flex-col items-center justify-center">
         <button className="text-lg text-white text-center p-2 bg-blue-800 hover:bg-blue-600 w-44">

@@ -14,7 +14,7 @@ export default function Headers() {
           alt="Logo"
         />
         <p className="flex flex-row items-center overflow-hidden invisible text-left text-blue-950 text-xl pl-2 border-l-4 ml-2 border-stone-800 h-6 w-28 md:w-full md:h-16 md:visible">
-          Le meilleur site pour vos reservation de villa
+          Le meilleur site pour vos reservations de villa
         </p>
       </div>
 

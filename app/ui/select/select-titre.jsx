@@ -13,6 +13,8 @@ export default function SelectTitre(props) {
         className="floating-select"
         value={props.selectedSexe ? props.selectedSexe : ""} // ...force the select's value to match the state variable...
         onChange={listenToInput}
+        required
+        minlength="4"
       >
         <option value=""></option>
         <option value="Male">Male</option>
