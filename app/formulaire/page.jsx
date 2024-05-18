@@ -169,25 +169,27 @@ export default function Page() {
           className="text-lg text-white text-center p-2 bg-blue-800 hover:bg-blue-600 w-44 disabled:bg-slate-300 disabled:cursor-not-allowed"
           onClick={handleSubmit}
           disabled={
-            activedisable(
-              selectedSexe,
-              selectedName,
-              selectedPrenom,
-              selectedRueEtNumero,
-              selectedCodePostal,
-              selectedLieux,
-              selectedPays,
-              selectedTel,
-              selectedEmail,
-              selectedCardName,
-              selectedCardNumber,
-              selectedMonthExp,
-              selectedYearsExp,
-              selectedCvv,
-              selectedDays
-            ) &&
-            selectedDays.daysStart &&
-            selectedDays.daysEnd
+            !(
+              activedisable(
+                selectedSexe,
+                selectedName,
+                selectedPrenom,
+                selectedRueEtNumero,
+                selectedCodePostal,
+                selectedLieux,
+                selectedPays,
+                selectedTel,
+                selectedEmail,
+                selectedCardName,
+                selectedCardNumber,
+                selectedMonthExp,
+                selectedYearsExp,
+                selectedCvv,
+                selectedDays
+              ) &&
+              selectedDays.daysStart &&
+              selectedDays.daysEnd
+            )
           }
         >
           Envoyer

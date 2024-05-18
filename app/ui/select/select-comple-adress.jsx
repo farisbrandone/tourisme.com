@@ -8,8 +8,6 @@ export default function ComplementEtAdresse(props) {
         className="floating-input"
         type="text"
         placeholder=" "
-        required
-        minLength={1}
         value={props.selectedComAdresse}
         onChange={listenToInput}
       />
