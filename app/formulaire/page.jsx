@@ -34,6 +34,8 @@ export default function Page() {
     daysStart: "",
     daysEnd: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   function activedisable(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) {
     if (
       a &&
@@ -80,20 +82,28 @@ export default function Page() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/formulaire", {
-        method: "POST",
-        body: JSON.stringify(result),
-        headers: {
-          "content-type": "application/json",
-        },
-      });
+      setLoading(true);
+      const res = await fetch(
+        "https://tourisme-com-api.onrender.com/formulaire",
+        {
+          method: "POST",
+          body: JSON.stringify(result),
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
       console.log(res);
       if (res.ok) {
+        setLoading(false);
+        setSuccess(true);
         console.log("Yeai!");
       } else {
+        setLoading(false);
         console.log("Oops! Something is wrong.");
       }
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
     /*setName('')
@@ -191,7 +201,7 @@ export default function Page() {
           className="text-lg text-white text-center p-2 bg-blue-800 hover:bg-blue-600 w-44 disabled:bg-slate-300 disabled:cursor-not-allowed"
           onClick={handleSubmit}
           disabled={
-            activedisable(
+            (activedisable(
               selectedSexe,
               selectedName,
               selectedPrenom,
@@ -208,12 +218,32 @@ export default function Page() {
               selectedCvv,
               selectedDays
             ) &&
-            selectedDays.daysStart &&
-            selectedDays.daysEnd
+              selectedDays.daysStart &&
+              selectedDays.daysEnd) ||
+            loading
           }
         >
           Envoyer
         </button>
+        <div className="flex flex-row mt-3">
+          {success ? (
+            <div className="text-lg text-green-900">
+              Les données ont été envoyé avec success
+            </div>
+          ) : (
+            ""
+          )}
+          {loading ? (
+            <div>
+              <svg
+                class="animate-spin bg-blue-900 h-14 w-14 mr-3 ..."
+                viewBox="0 0 24 24"
+              ></svg>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );
