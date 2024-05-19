@@ -187,7 +187,7 @@ export default function Page() {
           selectedCardName={selectedCardName}
           setSelectedCardName={setSelectedCardName}
           selectedCardNumber={selectedCardNumber}
-          setSelectedCardCardNumber={setSelectedCardNumber}
+          setSelectedCardNumber={setSelectedCardNumber}
           selectedMonthExp={selectedMonthExp}
           setSelectedMonthExp={setSelectedMonthExp}
           selectedYearsExp={selectedYearsExp}
